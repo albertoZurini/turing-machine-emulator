@@ -1,0 +1,151 @@
+html,body{
+    background: #111;
+    margin: 0;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 400;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 300;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+    height: 100%;
+}
+table td:first-child{
+    width: 85%;
+}
+/*
+table tr:last-child{
+    height: 15%;
+}
+*/
+textarea{
+    width: 100%;
+    height: 100%;
+    color: #eee;
+    background: #333;
+    border: 0;
+    font-family: monospace;
+    font-size: 14pt;
+}
+
+textarea:focus{
+    border: 0;
+}
+
+div.active{
+    background: rgba(255,255,255,.2);
+}
+
+#stop.active{
+    background: #777;
+}
+
+.nastro{
+    min-width: 100%;
+    overflow: auto;
+    margin-top: 100px;
+}
+
+.nastro div{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 50px;
+    display: inline-block;
+}
+
+.debugInfo{
+    width: 400px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,.75);
+    cursor: move;
+}
+
+.button{
+    display: inline-block;
+    background: rgba(200,200,200,1);
+    cursor: pointer;
+    padding: 5px;
+    color: #333;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.button:active{
+    background: rgba(200,200,200,.75);
+}
+
+.testina{
+    background: url("../img/arrow.svg") no-repeat center center;
+    background-size: cover;
+    -webkit-filter: invert(100%); /* Safari */
+    filter: invert(100%);
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+    position: absolute;
+}
+
+.tutorial{
+    background: rgba(0,0,0,.75);
+    position: absolute;
+    top: 0;
+    left: 500px;
+    padding: 10px;
+    width: 700px;
+}
+
+.close{
+    position: absolute;
+    cursor:pointer;
+    right: 10px;
+}
+
+.debugInfo, #comeSiUsa{
+    display: none;
+}
+
+.linedwrap{
+    height: 100%;
+}
+
+.lineno.error{
+    color: red !important;
+}
+.selected::before{
+   content: '';
+   display: inline-block;
+   width: 8pt;
+   height: 8pt;
+   -moz-border-radius: 10pt;
+   -webkit-border-radius: 10pt;
+   border-radius: 10pt;
+   background-color: #69b6d5;
+}
+.lineno{
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .debugInfo{
+        display: block;
+    }
+    #comeSiUsa{
+        display: inline-block;
+    }
+}

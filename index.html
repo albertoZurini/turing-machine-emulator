@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="css/gui.css">
+        <link rel="stylesheet" href="css/jquery-linedtextarea.css">
+        <title>Macchina di Turing</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <textarea id="code">(c,0) > (d,0,1)
+(d,1) > (c,1,-1)</textarea>
+                </td>
+            </tr>
+            <tr style="height: 0">
+                <td>
+                    <div id="comeSiUsa" class="button">Come si usa?</div>
+                    <div id="parse" class="button">Esegui</div>
+                    <div id="stop" class="button">Stop</div>
+                    <div id="aggiungi" class="button">Aggiungi casella</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="testina"></div>
+                    <div class="nastro">
+                        <div>0</div>
+                        <div>1</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="debugInfo">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3 style="margin: 0; text-align: center">Debug info</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stato controllato:
+                    </td>
+                    <td>
+                        <span class="statoControllato"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Istruzione eseguita:
+                    </td>
+                    <td>
+                         <span class="istruzione"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stato attuale:
+                    </td>
+                    <td>
+                        <span class="statoAttuale"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tempo di esecuzione per casella:</td>
+                    <td>
+                        <input id="time" type="numeric" value="1500">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="tutorial" style="display: none">
+            <span class="close">X</span>
+            <h1>Come si usa?</h1>
+            <p>La sintassi di un comando per questo emulatore è la seguente:</p>
+            <pre style="font-size: 18pt">(S1,C1) > (S2,C2,M)</pre>
+            <p>Che significa: se la macchina si trova allo stato "S1" e legge il carattere "C1", allora lo stato diventa S2, il contenuto della casella sarà C2 e la testina si muoverà di M caselle.</p>
+            <h4>Esempio</h4>
+            <p>Questo esempio scrive la parola "CIAO" all'infinito, finchè non trova un simbolo "@"; trovato il simbolo, torna indietro di 4 caselle e scrive "CIAO" su di esse.</p>
+            <textarea onClick="this.setSelectionRange(0, this.value.length)" style="overflow: hidden" rows="5">(*,@) > (c,@,-4)
+(c,*) > (d,C,1)
+(d,*) > (e,I,1)
+(e,*) > (f,A,1)
+(f,*) > (c,O,1)</textarea>
+            <p>Con il carattere "*" messo al posto di S1, si verifica il secondo parametro qualunque sia lo stato della macchina.<br/>
+            Con lo stesso carattere messo al posto di "C1", si verifica lo stato della macchina qualunque sia il valore letto dalla testina</p>
+            <h4>Esecuzione</h4>
+            <p>Per eseguire il programma, è sufficiente premere il pulsante "Esegui". Nel caso in cui ci sia un errore di sintassi, il debugger comunicherà di ciò specificando anche la riga e il comando errato.</p>
+        </div>
+    </body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-linedtextarea.js"></script>
+    <script src="js/core.js"></script>
+</html>
